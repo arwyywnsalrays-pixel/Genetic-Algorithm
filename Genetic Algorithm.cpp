@@ -140,3 +140,30 @@ public:
         return child;
     }
 
+
+
+
+
+
+
+
+// =====================
+// Main
+// =====================
+int main() {
+
+    srand(time(0));
+
+    ofstream file("result.txt");
+
+    GA ga;
+
+    for (int t = 1; t <= 5; t++) {
+
+        cout << "Test " << t << endl;
+
+        bool rouletteMethod = (t % 2 == 1);
+
+        Queen ans =
+            ga.solve(rouletteMethod, file);
+    }
