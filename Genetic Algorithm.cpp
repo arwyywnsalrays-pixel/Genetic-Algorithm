@@ -56,3 +56,52 @@ public:
 
         return score;
     }
+
+    // Random Solution
+    Queen randomQueen() {
+
+        Queen q(n);
+
+        for (int i = 0; i < n; i++) {
+            q.board[i] = rand() % n;
+        }
+
+        q.fit = fitness(q.board);
+
+        return q;
+    }
+
+    // Create Population
+    void startPop() {
+
+        pop.clear();
+
+        for (int i = 0; i < popSize; i++) {
+            pop.push_back(randomQueen());
+        }
+    }
+
+    // Roulette Selection
+    Queen roulette() {
+
+        int total = 0;
+
+        for (int i = 0; i < pop.size(); i++) {
+            total += pop[i].fit;
+        }
+
+        int r = rand() % total;
+
+        int sum = 0;
+
+        for (int i = 0; i < pop.size(); i++) {
+
+            sum += pop[i].fit;
+
+            if (sum > r)
+                return pop[i];
+        }
+
+        return pop[0];
+    }
+
