@@ -105,3 +105,19 @@ public:
         return pop[0];
     }
 
+    // Tournament Selection
+    Queen tournament() {
+
+        Queen best = pop[rand() % pop.size()];
+
+        for (int i = 0; i < 5; i++) {
+
+            Queen q = pop[rand() % pop.size()];
+
+            if (q.fit > best.fit)
+                best = q;
+        }
+
+        return best;
+    }
+
