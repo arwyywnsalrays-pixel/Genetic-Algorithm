@@ -120,4 +120,23 @@ public:
 
         return best;
     }
+ // Cross Over
+    Queen cross(Queen a, Queen b) {
+
+        Queen child(n);
+
+        int cut = rand() % n;
+
+        for (int i = 0; i < cut; i++) {
+            child.board[i] = a.board[i];
+        }
+
+        for (int i = cut; i < n; i++) {
+            child.board[i] = b.board[i];
+        }
+
+        child.fit = fitness(child.board);
+
+        return child;
+    }
 
