@@ -120,7 +120,8 @@ public:
 
         return best;
     }
- // Cross Over
+
+    // Cross Over
     Queen cross(Queen a, Queen b) {
 
         Queen child(n);
@@ -216,8 +217,6 @@ public:
     }
 };
 
-
-
 // =====================
 // Main
 // =====================
@@ -237,7 +236,7 @@ int main() {
 
         Queen ans =
             ga.solve(rouletteMethod, file);
-        
+
         cout << "Fitness: "
              << ans.fit << endl;
 
@@ -266,4 +265,4 @@ int main() {
     file.close();
 
     return 0;
-    }
+}
